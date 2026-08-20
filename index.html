@@ -8,14 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0b0d;
-    --bg-alt:#141416;
-    --bg-card:#18181b;
-    --gold:#d4a72c;
-    --gold-bright:#f0c550;
-    --text:#f2efe6;
-    --text-muted:#9a968c;
-    --border:#26241f;
+    --bg:#0D0D0D;
+    --bg-alt:#252525;
+    --bg-card:#252525;
+    --gold:#C9A227;
+    --gold-bright:#E8DCC4;
+    --text:#FFFFFF;
+    --text-muted:#C8C3B8;
+    --border:#3A3834;
+    --champagne:#F5EFE3;
+    --warm:#E8DCC4;
     --font-display:'Space Grotesk',sans-serif;
     --font-body:'Inter',sans-serif;
     --font-mono:'JetBrains Mono',monospace;
@@ -157,35 +159,14 @@
     border-bottom:1px solid var(--border);
   }
   .dot{width:9px;height:9px;border-radius:50%;background:#3a3934;}
-  .browser-body{padding:22px;}
-  .site-nav{
-    display:flex;justify-content:space-between;align-items:center;
-    font-size:11px;color:var(--text-muted);
-    padding-bottom:14px;margin-bottom:16px;
-    border-bottom:1px solid var(--border);
-  }
-  .site-nav b{color:var(--text);font-family:var(--font-display);font-size:13px;}
-  .site-hero{
-    background:linear-gradient(135deg, #1c2b1e, #16201a);
-    border-radius:8px;
-    padding:26px 20px;
-    margin-bottom:14px;
-  }
-  .site-hero .tag{font-family:var(--font-mono);font-size:10px;color:var(--gold);}
-  .site-hero h3{font-family:var(--font-display);font-size:19px;margin-top:6px;font-weight:600;}
-  .site-hero p{font-size:12px;color:var(--text-muted);margin-top:6px;}
-  .site-btn{
-    display:inline-block;margin-top:12px;
-    background:var(--gold);color:#0b0b0d;
-    font-size:11px;font-weight:600;
-    padding:6px 14px;border-radius:4px;
-  }
-  .cat-row{display:flex;gap:8px;flex-wrap:wrap;}
-  .cat-chip{
-    font-size:10px;color:var(--text-muted);
-    background:var(--bg-alt);
-    border:1px solid var(--border);
-    padding:6px 10px;border-radius:20px;
+  .browser-body{padding:0;}
+  .browser-body img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:520px;
+    object-fit:cover;
+    object-position:top;
   }
   .case-copy .eyebrow{margin-bottom:14px;}
   .case-copy p{color:var(--text-muted);margin-top:16px;}
@@ -288,6 +269,93 @@
     .nav-links{display:none;}
     .foot-meta{flex-direction:column;gap:10px;}
   }
+
+  .section-intro{
+    color:var(--text-muted);
+    margin-top:16px;
+    max-width:560px;
+    font-size:15px;
+  }
+
+  .benefit-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+
+  .benefit{
+    background:var(--bg-card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:26px 22px;
+    transition:border-color .2s, transform .2s;
+  }
+
+  .benefit:hover{
+    border-color:var(--gold);
+    transform:translateY(-3px);
+  }
+
+  .benefit-number{
+    color:var(--gold);
+    font-family:var(--font-mono);
+    font-size:12px;
+    margin-bottom:24px;
+  }
+
+  .benefit h3{
+    font-family:var(--font-display);
+    font-size:19px;
+    margin-bottom:9px;
+  }
+
+  .benefit p{
+    color:var(--text-muted);
+    font-size:13px;
+  }
+
+  .value-box{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:48px;
+    align-items:center;
+    background:var(--champagne);
+    color:var(--bg);
+    border-radius:12px;
+    padding:44px;
+  }
+
+  .value-box .eyebrow{color:#8E7018;}
+  .value-box h2{
+    color:var(--bg);
+    margin-top:12px;
+  }
+
+  .value-box p{
+    font-size:16px;
+    line-height:1.7;
+    color:#3C3933;
+  }
+
+  .value-points{
+    display:grid;
+    gap:9px;
+    margin-top:20px;
+    color:#24221E;
+    font-size:13px;
+    font-weight:600;
+  }
+
+  @media (max-width:900px){
+    .benefit-grid{grid-template-columns:repeat(2,1fr);}
+    .value-box{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:760px){
+    .benefit-grid{grid-template-columns:1fr;}
+    .value-box{padding:30px 24px;}
+  }
+
 </style>
 </head>
 <body>
@@ -296,7 +364,8 @@
   <div class="wrap">
     <div class="logo">ACOSTA<span>WEB</span></div>
     <div class="nav-links">
-      <a href="#caso">Caso real</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#caso">Proyecto real</a>
       <a href="#paquetes">Paquetes</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -306,12 +375,12 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow">desarrollo-web --a-medida</div>
-    <h1>Tu negocio, en la web y más allá.<span class="cursor">&nbsp;</span></h1>
-    <p class="lede">Diseñamos y desarrollamos sitios y tiendas online a medida, con tecnología robusta y foco en que tu negocio consiga más clientes.</p>
+    <div class="eyebrow">una web para tu negocio</div>
+    <h1>Hacé que tu negocio se vea, genere confianza y consiga más clientes.<span class="cursor">&nbsp;</span></h1>
+    <p class="lede">Desarrollamos sitios web y tiendas online pensados para negocios reales: para mostrar lo que vendés, recibir consultas por WhatsApp y convertir visitas en oportunidades.</p>
     <div class="hero-actions">
-      <a class="btn" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Consultá por WhatsApp</a>
-      <a class="btn btn-ghost" href="#caso">Ver caso real ↓</a>
+      <a class="btn" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Quiero mejorar mi negocio</a>
+      <a class="btn btn-ghost" href="#paquetes">Ver opciones ↓</a>
     </div>
   </div>
 </section>
@@ -324,33 +393,51 @@
           <div class="dot"></div><div class="dot"></div><div class="dot"></div>
         </div>
         <div class="browser-body">
-          <div class="site-nav">
-            <b>Forrajería El Lucero</b>
-            <span>Inicio · Productos · Contacto</span>
-          </div>
-          <div class="site-hero">
-            <div class="tag">// tienda online</div>
-            <h3>Todo para el cuidado de tus mascotas</h3>
-            <p>Catálogo completo, stock en tiempo real y pagos integrados.</p>
-            <span class="site-btn">Ver productos</span>
-          </div>
-          <div class="cat-row">
-            <span class="cat-chip">Perros</span>
-            <span class="cat-chip">Gatos</span>
-            <span class="cat-chip">Aves</span>
-            <span class="cat-chip">Equinos</span>
-          </div>
+          <img src="el-lucero-preview.jpg" alt="Captura real de Forrajería El Lucero, tienda online desarrollada por Acosta Web">
         </div>
       </div>
       <div class="case-copy">
-        <div class="eyebrow">caso-real</div>
+        <div class="eyebrow">proyecto real</div>
         <h2>Forrajería El Lucero</h2>
-        <p>Una tienda online completa: gestión de stock, carrito de compras y panel de administración a medida, construida sobre un sistema pensado para crecer junto con el negocio.</p>
-        <p>Es el mismo nivel de trabajo que se replica en cada proyecto, adaptado al tamaño y presupuesto de cada cliente.</p>
+        <p>Una tienda online creada para que sus clientes puedan conocer los productos, consultar, comprar y encontrar la información que necesitan desde cualquier dispositivo.</p>
+        <p>El sistema también permite gestionar stock, pedidos y productos desde un panel de administración. La tecnología está al servicio del negocio, no al revés.</p>
         <div class="case-stats">
-          <div><b>100%</b><span>a medida</span></div>
-          <div><b>Django</b><span>backend robusto</span></div>
+          <div><b>24/7</b><span>tu negocio online</span></div>
+          <div><b>100%</b><span>adaptado al negocio</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="beneficios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">lo que gana tu negocio</div>
+      <h2>Una web no es solo una página. Es una herramienta para vender mejor.</h2>
+      <p class="section-intro">La hacemos pensando en tus clientes y en lo que necesitás conseguir con tu presencia online.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <div class="benefit-number">01</div>
+        <h3>Más visibilidad</h3>
+        <p>Mostrá tu negocio online y facilitá que nuevos clientes conozcan lo que ofrecés.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-number">02</div>
+        <h3>Más consultas</h3>
+        <p>Conectá tu web con WhatsApp para que tus clientes puedan contactarte de forma rápida y directa.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-number">03</div>
+        <h3>Más confianza</h3>
+        <p>Una presencia profesional ayuda a que tu negocio se vea serio, cuidado y confiable.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-number">04</div>
+        <h3>Más oportunidades</h3>
+        <p>Mostrá productos, servicios, promociones y toda la información importante las 24 horas.</p>
       </div>
     </div>
   </div>
@@ -366,10 +453,10 @@
       <div class="pkg">
         <div class="tag">alcance 01</div>
         <h3>Landing / Catálogo</h3>
-        <p class="desc">Tu presencia online, simple y directa al punto.</p>
+        <p class="desc">Para que tus clientes te encuentren, conozcan lo que ofrecés y puedan contactarte.</p>
         <ul>
-          <li>Una sola página, diseño responsive</li>
-          <li>Formulario de contacto o botón de WhatsApp</li>
+          <li>Una sola página, adaptada a celular y PC</li>
+          <li>Botón de WhatsApp para recibir consultas</li>
           <li>Catálogo visual de hasta 15 productos</li>
         </ul>
         <a class="btn btn-ghost" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Consultar</a>
@@ -377,10 +464,10 @@
       <div class="pkg">
         <div class="tag">alcance 02</div>
         <h3>Institucional</h3>
-        <p class="desc">Un sitio completo para transmitir confianza y profesionalismo.</p>
+        <p class="desc">Para presentar tu negocio de forma profesional y explicar por qué elegirte.</p>
         <ul>
-          <li>Varias secciones y páginas internas</li>
-          <li>SEO básico para aparecer en Google</li>
+          <li>Páginas para mostrar tu negocio y servicios</li>
+          <li>SEO básico para que puedan encontrarte en Google</li>
           <li>Diseño personalizado a tu marca</li>
         </ul>
         <a class="btn btn-ghost" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Consultar</a>
@@ -388,11 +475,11 @@
       <div class="pkg featured">
         <div class="tag">alcance 03</div>
         <h3>Tienda online</h3>
-        <p class="desc">Tu negocio 100% online, con sistema propio y escalable.</p>
+        <p class="desc">Para vender tus productos online, recibir pagos y gestionar tus pedidos.</p>
         <ul>
-          <li>Gestión de stock y carrito de compras</li>
-          <li>Integración con Mercado Pago</li>
-          <li>Panel de administración a medida</li>
+          <li>Productos, stock y carrito de compras</li>
+          <li>Pagos online con Mercado Pago</li>
+          <li>Panel para gestionar tu tienda</li>
         </ul>
         <a class="btn" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Consultar</a>
       </div>
@@ -402,9 +489,20 @@
 
 <section>
   <div class="wrap">
-    <div class="tech">
-      <div class="tech-badge">&lt;/&gt; Django</div>
-      <p><strong>El mismo tipo de tecnología que usan Instagram y Spotify</strong> para manejar millones de usuarios sin caerse. Un sistema pensado para durar y crecer, no una plantilla armada a las apuradas.</p>
+    <div class="value-box">
+      <div>
+        <div class="eyebrow">hecho para tu negocio</div>
+        <h2>No necesitás entender de tecnología.</h2>
+      </div>
+      <div>
+        <p>Nosotros nos ocupamos del desarrollo. Vos te enfocás en tu negocio.</p>
+        <div class="value-points">
+          <span>✓ Diseño adaptado a tu marca</span>
+          <span>✓ Experiencia en celular y PC</span>
+          <span>✓ WhatsApp y herramientas que necesitás</span>
+          <span>✓ Desarrollo a medida, sin plantilla genérica</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -413,8 +511,8 @@
   <div class="wrap">
     <div class="maint">
       <div>
-        <h4>Mantenimiento aparte, sin sorpresas</h4>
-        <p>Suscripción mensual de soporte, hosting y mantenimiento, para que tu sitio esté siempre online, seguro y actualizado.</p>
+        <h4>Nos ocupamos de que tu web siga funcionando</h4>
+        <p>Podés contar con soporte, hosting y mantenimiento para que tu sitio siga online, seguro y actualizado.</p>
       </div>
       <a class="btn btn-ghost" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Preguntar por planes</a>
     </div>
@@ -424,11 +522,11 @@
 <footer id="contacto">
   <div class="wrap">
     <div class="eyebrow" style="justify-content:center;">contacto</div>
-    <h2>Hablemos sobre el proyecto que tu negocio necesita</h2>
-    <p class="lede">Contanos qué necesitás y armamos el paquete justo para vos, sin vueltas.</p>
+    <h2>¿Querés llevar tu negocio a internet?</h2>
+    <p class="lede">Contanos qué vendés, qué necesitás y qué querés conseguir. Te recomendamos la opción más adecuada para tu negocio.</p>
     <a class="btn" href="https://wa.me/5493541620247" target="_blank" rel="noopener">Consultá por WhatsApp</a>
     <div class="foot-meta">
-      <span>Acosta Web — Diseño y desarrollo web</span>
+      <span>Acosta Web — Desarrollo web para negocios</span>
       <a href="https://instagram.com/acosta_web" target="_blank" rel="noopener">@acosta_web</a>
       <span>Villa Carlos Paz, Córdoba</span>
     </div>
