@@ -374,35 +374,23 @@
         /* Contenedor de imagen */
 
         .browser-body{
-            display:flex;
+        position:relative;
+        width:100%;
+        height:620px;
+        overflow:hidden;
+        background:#111;
+    }
 
-            justify-content:center;
+      .browser-body img{
+        display:block;
+        width:100%;
+        height:auto;
 
-            align-items:center;
+        /* Sube la imagen para ocultar las notificaciones */
+        transform:translateY(-45px);
 
-            padding:10px;
-
-            background:#111;
-        }
-
-
-        /* Imagen completa */
-
-        .browser-body img{
-            display:block;
-
-            width:100%;
-
-            height:auto;
-
-            max-height:700px;
-
-            object-fit:contain;
-
-            object-position:center;
-
-            border-radius:6px;
-        }
+        border-radius:0;
+    }
 
 
         .case-copy .eyebrow{
